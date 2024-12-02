@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooting Star Animation</title>
+    <style>
+       body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: radial-gradient(circle, #1e3b70, #121212);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .sky {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 80px;
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            transform-origin: top left;
+            animation: shoot 1.5s linear infinite;
+        }
+
+        @keyframes shoot {
+            from {
+                opacity: 1;
+                transform: translateX(0) translateY(0) rotate(-45deg);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(300px) translateY(500px) rotate(-45deg);
+            }
+        }
+
+        .center-text {
+            position: relative;
+            z-index: 10;
+            color: #fff;
+            font-size: 32px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .center-text a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.2s;
+        }
+
+        .center-text a:hover {
+            color: #45a049;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sky">
+        <!-- Shooting stars will be added here dynamically -->
+    </div>
+
+    <div class="center-text">
+        <a href="welcome.php" target="_blank">visit uv.saree</a>
+    </div>
+
+    <script>
+        function createShootingStar() {
+            const sky = document.querySelector('.sky');
+            const shootingStar = document.createElement('div');
+            shootingStar.classList.add('shooting-star');
+            shootingStar.style.top = `${Math.random() * window.innerHeight}px`;
+            shootingStar.style.left = `${Math.random() * window.innerWidth}px`;
+            shootingStar.style.animationDuration = `${1 + Math.random()}s`;
+            sky.appendChild(shootingStar);
+
+            setTimeout(() => {
+                shootingStar.remove();
+            }, 1500);
+        }
+
+        setInterval(createShootingStar, 800);
+    </script>
+
+</body>
+</html>
