@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* Mobile styles */
+.stage {
+    min-width: 320px;
+    max-width: 480px;
+    height: auto;
+    background: #0EFF9B;
+}
+
+.stage .hero {
+    width: 100%;
+    height: 100vh;
+    background-color: #E265FF;
+    align-items: center;
+    overflow-x: hidden;
+    animation: colour-change 20s linear infinite;
+}
+
+@keyframes colour-change {
+    0% {
+        background-color: #E265FF;
+    }
+    20% {
+        background-color: #FF6565;
+    }
+    40% {
+        background-color: #E265FF;
+    }
+    60% {
+        background-color: #9165FF;
+    }
+    80% {
+        background-color: #85FFEB;
+    }
+    100% {
+        background-color: #E265FF;
+    }
+}
+
+.hero .topnav {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.topnav .logo {
+    width: 25%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+
+.logo a {
+    width: 100%;
+    height: 1rem;
+}
+
+.logo a img {
+    width: auto;
+    height: 1rem;
+    background-size: cover;
+}
+
+.topnav .menu {
+    width: 70%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: transparent;
+    font-size: 0.7rem;
+}
+
+.menu div {
+    padding: 0.3rem;
+    background: transparent;
+}
+
+.menu div a {
+    color: #fff;
+    background: transparent;
+    font-weight: 900;
+}
+
+.menu .log {
+    visibility: hidden;
+    display: none;
+}
+
+/* Box for saree images */
+.box {
+    width: 10rem;
+    height: 15rem;
+    background-color: transparent;
+    background-size: cover;
+    box-sizing: border-box;
+    position: relative;
+    top: 10rem;
+    left: 43.7%;
+    transform-style: preserve-3d;
+    animation: animate 35s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+.box span {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(370px);
+    -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #00000038);
+}
+
+.box span img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border: 0.3rem solid #000;
+    border-radius: 0%;
+}
+/**************
+.box span::after {
+    content: "80% Off #sale80off ";
+    position: absolute;
+    bottom: 0.3rem;
+    left: 0.3rem;
+    padding: 0.3rem;
+    background-color: #FF0000;
+    color: #fff;
+    font-weight: 900;
+    animation: colour-change 20s linear infinite;
+}   *********/
+
+/* Styling for Buy Now button */
+.box span .buy-now {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2.5px 40px;
+    background-color: #ee0d0d;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: background-color 0.3s ease;
+}
+
+.box span .buy-now:hover {
+    background-color: rgb(9, 159, 49);
+    opacity: 1;
+}
+
+
+@media (min-width: 1270px) {
+    .stage {
+        min-width: 100vw;
+        max-width: auto;
+    }
+
+    .hero .topnav {
+        height: 3rem;
+    }
+
+    .topnav .logo {
+        height: 3rem;
+    }
+
+    .logo a img {
+        height: 1.5rem;
+    }
+
+    .topnav .menu {
+        height: 3rem;
+        font-size: 1rem;
+    }
+
+    .menu div {
+        padding: 0.5rem;
+    }
+
+    .box {
+        left: 43.7%;
+    }
+
+    .box span::after {
+        content: "080 % Off #sale80off ";
+        border-right: 0 solid transparent;
+    }
+}
